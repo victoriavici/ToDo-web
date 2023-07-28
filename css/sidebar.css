@@ -1,0 +1,98 @@
+aside {
+    background: rgb(42, 53, 68);
+    width: 33.33333333332%;
+}
+ 
+header {
+    font-weight: bold;
+}
+
+input {
+
+    color: white;
+
+    border: none;
+    border-top: 1px solid black;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 0.375rem;
+
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: normal;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 0.5rem;
+}
+
+nav a {
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    
+    color: rgba(255, 255, 255, 0.938);
+}
+
+nav:hover,
+nav:active {
+    color: white;
+}
+
+
+nav .today:hover,
+nav .today:active {
+    background: rgb(130, 133, 125)   
+}
+nav .all:hover,
+nav .all:active {
+    background: cornflowerblue   
+}
+nav .scheduled:hover,
+nav .scheduled:active {
+    background: tomato   
+}
+nav .flagged:hover,
+nav .flagged:active {
+    background: orange;
+}
+
+nav p {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav svg {
+    width: 1.5rem;
+    height:  1.5rem;
+    border-radius: 1.5rem;
+
+    padding: 0.5rem;
+    margin-bottom: 0.3755rem;
+}
+
+nav .today svg {
+    background: olivedrab;
+}
+nav .all svg {
+    background: cornflowerblue;
+}
+nav .scheduled svg {
+    background: tomato;
+}
+nav .flagged svg {
+    background: orange;
+}
+
+nav span {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}

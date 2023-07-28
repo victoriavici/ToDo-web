@@ -1,0 +1,86 @@
+main {
+    width: 66.66666666667%;
+    border-left: 2px solid black;
+}
+
+.add-new {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-new button {
+     color: rgb(255, 255, 255);
+    background-color: rgb(24, 32, 43);
+    font-size: 1rem;
+    padding: 0.215rem 0.575rem 0.3rem 0.5rem; 
+    /* margin-bottom: 0.75rem;   */
+    border-radius: 0.375rem; 
+    /* position: relative; */
+}
+
+.add-new button:hover,
+ .add-new button:active {
+    background: rgb(65, 64, 66);
+}
+h1 {
+   font-size: 2.25rem;
+   margin-bottom: 1.725rem ;
+   margin-top: 0.2rem;
+   /* font-family: "Arial Rounded MT Bold"; */
+   display: none;
+}
+
+h1.today {
+    color: olivedrab  ;
+    display: block; 
+}
+h1.all {
+    color: cornflowerblue   
+}
+h1.scheduled {
+    color: tomato  
+}
+h1.flagged {
+    color: orange;
+}
+
+.todos p {
+    padding: 0.625rem 0;
+    border-bottom: 1px solid rgb(55, 65, 81) ;
+    flex-grow: 1;
+}
+
+.todos li {
+    display: flex;
+    line-height: 1.25;
+}
+.todos svg {
+    flex: none;
+
+    width: 2rem;
+    height: 2rem;
+
+    stroke: rgb(24, 32, 43);
+    stroke-width: 1;
+    fill: rgb(55, 65, 81);
+    cursor: pointer;
+    padding-top: 0.8rem;
+    padding-right: 0.5rem;
+}
+
+.todos svg:active,
+.todos svg:hover {
+    fill: yellow
+}
+
+p {
+    display: block;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+ol.todos {
+    padding: 0.5rem;
+}
