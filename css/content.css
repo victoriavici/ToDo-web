@@ -30,17 +30,17 @@ h1 {
    display: none;
 }
 
-h1.today {
+#today {
     color: rgb(var(--color-today));
     display: block; 
 }
-h1.all {
+#all {
     color: rgb(var(--color-all));
 }
-h1.scheduled {
+#scheduled {
     color: rgb(var(--color-scheduled));
 }
-h1.flagged {
+#flagged {
     color: rgb(var(--color-flagged));
 }
 
@@ -71,7 +71,7 @@ h1.flagged {
 
 .todos svg:active,
 .todos svg:hover {
-    fill: rgb(var(--color-today));
+    fill: rgb(var(--color-svg));
 }
 
 p {
