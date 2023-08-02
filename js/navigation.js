@@ -28,7 +28,7 @@ function createTodoItem(task) {
   );
 }
 
-todosListElement.innerHTML = flaggedList.map(createTodoItem).join('');
+todosListElement.innerHTML = todayList.map(createTodoItem).join('');
 
 document.addEventListener("DOMContentLoaded", function () {
   var navLinks = document.querySelectorAll(".nav a");

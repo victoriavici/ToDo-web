@@ -72,10 +72,8 @@
             </nav>
 
             <div class="lists">
-                <hr width="100%" size="1rem">
-                <a href="#" class="list">
-                    Shopping List
-                </a>
+                <ul id="addedLists"> </ul>
+                
             </div>
             
             <footer>
@@ -102,11 +100,11 @@
     </div>
 
     <div id="modal" class="add-list-window">
-        <form action="">
-            <input type="text" placeholder="Name of new list">
+        <form id="addListForm" action="">
+            <input type="text" id="listNameInput" placeholder="Name of new list">
         </form>
         <div class="buttons">
-            <button>Submit</button>
+            <button id="submit">Submit</button>
             <button id="close">Cancel</button>
         </div>
 
