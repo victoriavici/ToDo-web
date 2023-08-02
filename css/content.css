@@ -10,7 +10,7 @@ main {
 
 .add-new button {
     color: rgb(255, 255, 255);
-    background-color: rgb(24, 32, 43);
+    background-color: rgb(var(--color-main));
     font-size: 1rem;
     padding: 0.215rem 0.575rem 0.3rem 0.5rem; 
     border-radius: 0.375rem; 
@@ -34,12 +34,15 @@ h1 {
     color: rgb(var(--color-today));
     display: block; 
 }
+
 #all {
     color: rgb(var(--color-all));
 }
+
 #scheduled {
     color: rgb(var(--color-scheduled));
 }
+
 #flagged {
     color: rgb(var(--color-flagged));
 }
