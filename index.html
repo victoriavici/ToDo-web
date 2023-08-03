@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/content.css">
     <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/addList.css">
     <title>To Do List</title>
 </head>
-<body>
-    <div class="app">
 
+<body>
+    <div class="darkness"></div>
+    <div class="app">
         <aside>
             <header>
                 To Do
@@ -23,8 +26,10 @@
             <nav class="nav">
                 <a href="#" class="today" data-target="today" data-color="var(--color-today)">
                     <p>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 6v4l3.276 3.276M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6v4l3.276 3.276M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         <span id="todayCount">0</span>
                     </p>
@@ -32,8 +37,10 @@
                 </a>
                 <a href="#" class="scheduled" data-target="scheduled" data-color="var(--color-scheduled)">
                     <p>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" viewBox="0 0 18 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 2h4a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4m6 0v3H6V2m6 0a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1M5 5h8m-5 5h5m-8 0h.01M5 14h.01M8 14h5"/>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" viewBox="0 0 18 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="M12 2h4a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4m6 0v3H6V2m6 0a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1M5 5h8m-5 5h5m-8 0h.01M5 14h.01M8 14h5" />
                         </svg>
                         <span id="scheduledCount">0</span>
                     </p>
@@ -41,8 +48,10 @@
                 </a>
                 <a href="#" class="all" data-target="all" data-color="var(--color-all)">
                     <p>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 4c0 1.657-3.582 3-8 3S1 5.657 1 4m16 0c0-1.657-3.582-3-8-3S1 2.343 1 4m16 0v6M1 4v6m0 0c0 1.657 3.582 3 8 3s8-1.343 8-3M1 10v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6"/>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 4c0 1.657-3.582 3-8 3S1 5.657 1 4m16 0c0-1.657-3.582-3-8-3S1 2.343 1 4m16 0v6M1 4v6m0 0c0 1.657 3.582 3 8 3s8-1.343 8-3M1 10v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6" />
                         </svg>
                         <span id="allCount">0</span>
                     </p>
@@ -50,8 +59,10 @@
                 </a>
                 <a href="#" class="flagged" data-target="flagged" data-color="var(--color-flagged)">
                     <p>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"/>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z" />
                         </svg>
                         <span id="flaggedCount">0</span>
                     </p>
@@ -61,18 +72,18 @@
             </nav>
 
             <div class="lists">
-                <hr width="100%" size="1rem">
-                <a href="#" class="list">
-                    Shopping List
-                </a>
+                <ul id="addedLists"> </ul>
             </div>
+            
             <footer>
-                <button class="add-list"> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5.757v8.486M5.757 10h8.486M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                <button id="add-list" class="add-list"> <svg class="w-6 h-6 text-gray-800 dark:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                        viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 5.757v8.486M5.757 10h8.486M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg> Add list</button>
             </footer>
         </aside>
-
         <main>
             <header class="add-new">
                 <button>+</button>
@@ -82,11 +93,25 @@
                 <h1 id="scheduled">Scheduled</h1>
                 <h1 id="all">All</h1>
                 <h1 id="flagged">Flagged</h1>
+                <h1 id="nameOfList">name</h1>
             </div>
-
             <ol id="todos" class="todos"> </ol>
         </main>
     </div>
+
+    <div id="modal" class="add-list-window">
+        <form id="addListForm" action="">
+            <input type="text" id="listNameInput" placeholder="Name of new list">
+        </form>
+        <div class="buttons">
+            <button id="submit">Submit</button>
+            <button id="close">Cancel</button>
+        </div>
+
+    </div>
+
     <script src="./js/navigation.js"></script>
+    <script src="./js/addList.js"></script>
 </body>
+
 </html>
