@@ -30,7 +30,7 @@ function createTodoItem(task) {
 
 todosListElement.innerHTML = todayList.map(createTodoItem).join('');
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   var navLinks = document.querySelectorAll(".nav a");
   var titleHeadings = document.querySelectorAll(".title h1");
 

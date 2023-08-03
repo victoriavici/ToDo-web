@@ -47,6 +47,10 @@ h1 {
     color: rgb(var(--color-flagged));
 }
 
+#nameOfList {
+    color: rgb(255, 255, 255);
+}
+
 .todos p {
     padding: 0.625rem 0;
     border-bottom: 1px solid rgb(55, 65, 81) ;

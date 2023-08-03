@@ -11,30 +11,10 @@ const submitFormButton = document.getElementById('submit');
 const addListForm = document.getElementById('addListForm');
 const listNameInput = document.getElementById('listNameInput');
 
-showFormButton.addEventListener('click', () => {
-  modal.style.display = 'flex';
-  modalDarkness.style.display = "block";
-});
-
-closeFormButton.addEventListener('click', () => {
-  closeModal();
-});
-
 function closeModal() {
   modal.style.display = 'none';
   modalDarkness.style.display = "none";
 };
-
-submitFormButton.addEventListener('click', () => {
-  const newListName = listNameInput.value;
-  if (newListName == '') {
-    return;
-  }
-  listOfLists.push({ name: newListName, items: [] });
-  renderLists();
-  listNameInput.value = '';
-  closeModal();
-});
 
 function createListItem(list) {
   return `<li>
@@ -51,4 +31,50 @@ function renderLists() {
   listSelect.innerHTML = listsHtml;
 }
 
+showFormButton.addEventListener('click', () => {
+  modal.style.display = 'flex';
+  modalDarkness.style.display = "block";
+});
+
+closeFormButton.addEventListener('click', () => {
+  closeModal();
+});
+
+submitFormButton.addEventListener('click', () => {
+  const newListName = listNameInput.value;
+  if (newListName == '') {
+    return;
+  }
+  listOfLists.push({ name: newListName, items: [] });
+  renderLists();
+  listNameInput.value = '';
+  closeModal();
+});
+
 renderLists();
+
+const addedLists = document.getElementById("addedLists");
+const nameOfListHeading = document.getElementById("nameOfList");
+var titleHeadings = document.querySelectorAll(".title h1");
+
+function handleListClick(event) {
+  event.preventDefault();
+
+  var clickedLink = event.target;
+  var listName = clickedLink.textContent.trim();
+
+  titleHeadings.forEach(heading => {
+      heading.style.display = "none";
+  });
+
+  nameOfListHeading.textContent = listName;
+  nameOfListHeading.style.display = "block";
+
+  listOfLists.forEach(list => {
+    if (list.name === listName) {
+      todosListElement.innerHTML = list.items.map(createTodoItem).join('');
+    }
+  })
+}
+
+addedLists.addEventListener("click", handleListClick);
