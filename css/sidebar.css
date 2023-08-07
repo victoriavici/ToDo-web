@@ -63,9 +63,9 @@ nav .scheduled:active {
     background: rgb(var(--color-scheduled));  
 }
 
-nav .flagged:hover,
-nav .flagged:active {
-    background: rgb(var(--color-flagged));
+nav .done:hover,
+nav .done:active {
+    background: rgb(var(--color-done));
 }
 
 nav p {
@@ -91,8 +91,8 @@ nav .all svg {
 nav .scheduled svg {
     background: rgb(var(--color-scheduled));
 }
-nav .flagged svg {
-    background: rgb(var(--color-flagged));
+nav .done svg {
+    background: rgb(var(--color-done));
 }
 
 nav span {

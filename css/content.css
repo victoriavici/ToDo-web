@@ -43,8 +43,9 @@ h1 {
     color: rgb(var(--color-scheduled));
 }
 
-#flagged {
-    color: rgb(var(--color-flagged));
+#done {
+    margin-top: 1.9rem;
+    color: rgb(var(--color-done));
 }
 
 #nameOfList {

@@ -1,9 +1,7 @@
 const todayList = ["dat si ranajky", "dat si obed"];
 const scheduledList = ["dat si ranajky", "spravit todolist"];
-const flaggedList = ["ta vlajocka este nie je"]
-var allList = [...todayList, ...scheduledList, ...flaggedList];
-
-//const allList = [...new Set([...todayList, ...scheduledList, ...flaggedList])];
+const doneList = ["ta vlajocka este nie je"]
+var allList = [...todayList, ...scheduledList, ...doneList];
 
 const todosListElement = document.getElementById('todos');
 
@@ -15,7 +13,7 @@ function updateItemCount(elementId, itemList) {
 updateItemCount('todayCount', todayList);
 updateItemCount('allCount', allList);
 updateItemCount('scheduledCount', scheduledList);
-updateItemCount('flaggedCount', flaggedList);
+updateItemCount('doneCount', doneList);
 
 function createTodoItem(task) {
   return (
@@ -63,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function showTasks(targetId) {
+  addNewElement.style.display = "flex";
   switch (targetId) {
     case "today":
       todosListElement.innerHTML = todayList.map(createTodoItem).join('');
@@ -72,15 +71,16 @@ function showTasks(targetId) {
       todosListElement.innerHTML = scheduledList.map(createTodoItem).join('');
       updateItemCount('scheduledCount', scheduledList);
       break;
-    case "flagged":
-      todosListElement.innerHTML = flaggedList.map(createTodoItem).join('');
-      updateItemCount('flaggedCount', flaggedList)
+    case "done":
+      todosListElement.innerHTML = doneList.map(createTodoItem).join('');
+      updateItemCount('doneCount', doneList)
+      addNewElement.style.display = "none";
       break;
     case "all":
       todosListElement.innerHTML = allList.map(createTodoItem).join('');
     default:
       break;
   }
-  allList = [...todayList, ...scheduledList, ...flaggedList];
+  allList = [...todayList, ...scheduledList, ...doneList];
   updateItemCount('allCount', allList);
 }

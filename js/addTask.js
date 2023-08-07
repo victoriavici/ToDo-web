@@ -47,8 +47,8 @@ titleHeadings.forEach(heading => {
     case "scheduled":
       scheduledList.push(task);
       break;
-    case "flagged":
-      flaggedList.push(task);
+    case "done":
+      doneList.push(task);
       break;
     case "all":
       allList.push(task);
