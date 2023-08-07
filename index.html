@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/content.css">
     <link rel="stylesheet" href="./css/sidebar.css">
-    <link rel="stylesheet" href="./css/addList.css">
+    <link rel="stylesheet" href="./css/modalWindow.css">
     <title>To Do List</title>
 </head>
 
@@ -85,7 +85,7 @@
             </footer>
         </aside>
         <main>
-            <header class="add-new">
+            <header class="add-new" id="add-new">
                 <button>+</button>
             </header>
             <div class="title">
@@ -99,7 +99,7 @@
         </main>
     </div>
 
-    <div id="modal" class="add-list-window">
+    <div id="modalList" class="add-window">
         <form id="addListForm" action="">
             <input type="text" id="listNameInput" placeholder="Name of new list">
         </form>
@@ -107,11 +107,21 @@
             <button id="submit">Submit</button>
             <button id="close">Cancel</button>
         </div>
+    </div>
 
+    <div id="modalTask" class="add-window">
+        <form id="addTaskForm" action="">
+            <input type="text" id="taskInput" placeholder="Write a new task">
+        </form>
+        <div class="buttons">
+            <button id="submitTask">Submit</button>
+            <button id="closeTask">Cancel</button>
+        </div>
     </div>
 
     <script src="./js/navigation.js"></script>
     <script src="./js/addList.js"></script>
+    <script src="./js/addTask.js"></script>
 </body>
 
 </html>

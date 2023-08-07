@@ -1,5 +1,5 @@
 
-.add-list-window {
+.add-window {
     width: 20rem;
     height: 7rem;
     border: 1px solid black;
@@ -17,7 +17,7 @@
     align-items: flex-start;
 }
 
-.add-list-window .buttons{
+.add-window .buttons{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -25,7 +25,7 @@
     width: 100%;
 }
 
-.add-list-window button {
+.add-window button {
     width: 5rem;
     height: 2rem;
     border-radius: 0.375rem;
@@ -38,7 +38,7 @@
 
 }
 
-.add-list-window form {
+.add-window form {
     width: 100%;
     display: flex;
     justify-content: center;

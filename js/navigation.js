@@ -1,7 +1,7 @@
 const todayList = ["dat si ranajky", "dat si obed"];
 const scheduledList = ["dat si ranajky", "spravit todolist"];
 const flaggedList = ["ta vlajocka este nie je"]
-const allList = [...todayList, ...scheduledList, ...flaggedList];
+var allList = [...todayList, ...scheduledList, ...flaggedList];
 
 //const allList = [...new Set([...todayList, ...scheduledList, ...flaggedList])];
 
@@ -30,6 +30,11 @@ function createTodoItem(task) {
 
 todosListElement.innerHTML = todayList.map(createTodoItem).join('');
 
+function changeColor(color) {
+  const rootElement = document.documentElement;
+  rootElement.style.setProperty('--color-svg', color);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   var navLinks = document.querySelectorAll(".nav a");
   var titleHeadings = document.querySelectorAll(".title h1");
@@ -40,11 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var targetId = clickedLink.getAttribute("data-target");
     var color = clickedLink.getAttribute("data-color");
 
-    function changeColor(color) {
-      const rootElement = document.documentElement;
-      rootElement.style.setProperty('--color-svg', color);
-    }
-
     titleHeadings.forEach(heading => {
       if (heading.id === targetId) {
         heading.style.display = "block";
@@ -54,24 +54,33 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     changeColor(color);
 
-    switch (targetId) {
-      case "today":
-        todosListElement.innerHTML = todayList.map(createTodoItem).join('');
-        break;
-      case "scheduled":
-        todosListElement.innerHTML = scheduledList.map(createTodoItem).join('');
-        break;
-      case "flagged":
-        todosListElement.innerHTML = flaggedList.map(createTodoItem).join('');
-        break;
-      case "all":
-        todosListElement.innerHTML = allList.map(createTodoItem).join('');
-      default:
-        break;
-    }
+    showTasks(targetId);
   }
 
   navLinks.forEach(navLink => {
     navLink.addEventListener("click", handleClick);
   });
 });
+
+function showTasks(targetId) {
+  switch (targetId) {
+    case "today":
+      todosListElement.innerHTML = todayList.map(createTodoItem).join('');
+      updateItemCount('todayCount', todayList);
+      break;
+    case "scheduled":
+      todosListElement.innerHTML = scheduledList.map(createTodoItem).join('');
+      updateItemCount('scheduledCount', scheduledList);
+      break;
+    case "flagged":
+      todosListElement.innerHTML = flaggedList.map(createTodoItem).join('');
+      updateItemCount('flaggedCount', flaggedList)
+      break;
+    case "all":
+      todosListElement.innerHTML = allList.map(createTodoItem).join('');
+    default:
+      break;
+  }
+  allList = [...todayList, ...scheduledList, ...flaggedList];
+  updateItemCount('allCount', allList);
+}
