@@ -63,6 +63,10 @@ h1 {
     line-height: 1.25;
 }
 
+.todos circle {
+    pointer-events: none;
+  }
+
 .todos svg {
     flex: none;
 
@@ -73,8 +77,10 @@ h1 {
     stroke-width: 1;
     fill: rgb(55, 65, 81);
     cursor: pointer;
-    padding-top: 0.8rem;
-    padding-right: 0.5rem;
+    padding: 0.1rem;
+
+    margin-top: 0.7rem;
+    margin-right: 0.4rem;
 }
 
 .todos svg:active,

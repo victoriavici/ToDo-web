@@ -1,24 +1,26 @@
-const todayList = ["dat si ranajky", "dat si obed"];
-const scheduledList = ["dat si ranajky", "spravit todolist"];
-const doneList = ["ta vlajocka este nie je"]
-var allList = [...todayList, ...scheduledList, ...doneList];
+var todayList = ["dat si ranajky", "dat si obed"];
+var scheduledList = ["dat si ranajky", "spravit todolist"];
+var doneList = ["ta vlajocka este nie je"]
+var allList = [...todayList, ...scheduledList];
 
 const todosListElement = document.getElementById('todos');
+updateCount();
 
 function updateItemCount(elementId, itemList) {
   const countElement = document.getElementById(elementId);
   countElement.textContent = itemList.length;
 }
-
+function updateCount() {
 updateItemCount('todayCount', todayList);
 updateItemCount('allCount', allList);
 updateItemCount('scheduledCount', scheduledList);
 updateItemCount('doneCount', doneList);
+}
 
 function createTodoItem(task) {
   return (
     `<li>
-      <svg>
+      <svg class="checkmark">
         <circle cx="13" cy="13" r="11"></circle>
       </svg>
       <p>${task}</p>
@@ -62,18 +64,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function showTasks(targetId) {
   addNewElement.style.display = "flex";
+  allList = [...todayList, ...scheduledList];
   switch (targetId) {
     case "today":
       todosListElement.innerHTML = todayList.map(createTodoItem).join('');
-      updateItemCount('todayCount', todayList);
       break;
     case "scheduled":
       todosListElement.innerHTML = scheduledList.map(createTodoItem).join('');
-      updateItemCount('scheduledCount', scheduledList);
       break;
     case "done":
       todosListElement.innerHTML = doneList.map(createTodoItem).join('');
-      updateItemCount('doneCount', doneList)
       addNewElement.style.display = "none";
       break;
     case "all":
@@ -81,6 +81,5 @@ function showTasks(targetId) {
     default:
       break;
   }
-  allList = [...todayList, ...scheduledList, ...doneList];
-  updateItemCount('allCount', allList);
+  updateCount();
 }

@@ -33,7 +33,7 @@ submitTaskFormButton.addEventListener('click', () => {
 
 function addTask(task) {
   var list;
-titleHeadings.forEach(heading => {
+  titleHeadings.forEach(heading => {
   if (getComputedStyle(heading).display === "block") {
     list = heading.textContent.toLowerCase();
     return;
@@ -62,3 +62,40 @@ titleHeadings.forEach(heading => {
   showTasks(list);
 };
 
+document.addEventListener("click", function(event) {
+
+  if (event.target.classList.contains("checkmark")) {
+    var taskText = event.target.nextElementSibling.textContent;
+    
+    var list;
+  titleHeadings.forEach(heading => {
+  if (getComputedStyle(heading).display === "block") {
+    list = heading.textContent.toLowerCase();
+    return;
+  }
+});
+
+  switch (list) {
+    case "today":
+      todayList = todayList.filter(item => item !== taskText);
+      break;
+    case "scheduled":
+      scheduledList = scheduledList.filter(item => item !== taskText);
+      break;
+    case "all":
+      var before = todayList.length;
+      todayList = todayList.filter(item => item !== taskText);
+      if (before == todayList.length) {
+        scheduledList = scheduledList.filter(item => item !== taskText);
+      }
+      break;
+    default:
+      addTaskToList(list, task);
+      showTasksOfList(list);
+      break;
+  };  
+  doneList.push(taskText);
+  updateCount();
+  showTasks(list);
+  }; 
+});
