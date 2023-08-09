@@ -84,6 +84,18 @@ function addTaskToList(listName, task) {
   listOfLists.forEach(list => {
     if (list.name === listName) {
       list.items.push(task);
+      return;
+    }
+  });
+  renderLists();
+}
+
+function removeTaskOfList(listName, task) {
+  listOfLists.forEach((list, index) => {
+    if (list.name === listName) {
+        list.items = list.items.filter(item => item !== task);
+        listOfLists[index] = (list);
+        return;
     }
   });
   renderLists();

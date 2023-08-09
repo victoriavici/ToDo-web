@@ -89,13 +89,16 @@ document.addEventListener("click", function(event) {
         scheduledList = scheduledList.filter(item => item !== taskText);
       }
       break;
+    case "done":
+        break;
     default:
-      addTaskToList(list, task);
-      showTasksOfList(list);
+      removeTaskOfList(list, taskText);
       break;
   };  
-  doneList.push(taskText);
-  updateCount();
-  showTasks(list);
+  if (list !== "done") {
+    doneList.push(taskText);
+    updateCount();
+    showTasks(list);
+    }
   }; 
 });

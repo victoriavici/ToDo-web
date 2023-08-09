@@ -79,6 +79,7 @@ function showTasks(targetId) {
     case "all":
       todosListElement.innerHTML = allList.map(createTodoItem).join('');
     default:
+      showTasksOfList(targetId);
       break;
   }
   updateCount();
