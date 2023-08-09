@@ -2,10 +2,11 @@
     --color-today: 96, 165, 250;
     --color-scheduled: 239, 68, 68;
     --color-all: 107, 142, 35;
-    --color-flagged: 245, 158, 11;
+    --color-done: 245, 158, 11;
     --color-main: 24, 32, 43;
     --color-aside: 42, 53, 68;
     --color-svg: 96, 165, 250;
+    --color-white: 255, 255, 255;
 }
 
 html {

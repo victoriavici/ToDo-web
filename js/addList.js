@@ -1,6 +1,6 @@
 const showFormButton = document.getElementById('add-list');
 const closeFormButton = document.getElementById('close');
-const modal = document.getElementById('modal');
+const modalList = document.getElementById('modalList');
 
 var modalDarkness = document.getElementsByClassName("darkness")[0];
 const addedListsElement = document.getElementById('addedLists');
@@ -12,7 +12,7 @@ const addListForm = document.getElementById('addListForm');
 const listNameInput = document.getElementById('listNameInput');
 
 function closeModal() {
-  modal.style.display = 'none';
+  modalList.style.display = 'none';
   modalDarkness.style.display = "none";
 };
 
@@ -32,7 +32,7 @@ function renderLists() {
 }
 
 showFormButton.addEventListener('click', () => {
-  modal.style.display = 'flex';
+  modalList.style.display = 'flex';
   modalDarkness.style.display = "block";
 });
 
@@ -69,6 +69,7 @@ function handleListClick(event) {
 
   nameOfListHeading.textContent = listName;
   nameOfListHeading.style.display = "block";
+  changeColor("var(--color-white)");
 
   listOfLists.forEach(list => {
     if (list.name === listName) {
@@ -78,3 +79,32 @@ function handleListClick(event) {
 }
 
 addedLists.addEventListener("click", handleListClick);
+
+function addTaskToList(listName, task) {
+  listOfLists.forEach(list => {
+    if (list.name === listName) {
+      list.items.push(task);
+      return;
+    }
+  });
+  renderLists();
+}
+
+function removeTaskOfList(listName, task) {
+  listOfLists.forEach((list, index) => {
+    if (list.name === listName) {
+        list.items = list.items.filter(item => item !== task);
+        listOfLists[index] = (list);
+        return;
+    }
+  });
+  renderLists();
+}
+
+function showTasksOfList(listName) {
+  listOfLists.forEach(list => {
+    if (list.name === listName) {
+      todosListElement.innerHTML = list.items.map(createTodoItem).join('');
+    }
+  })
+}
