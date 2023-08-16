@@ -1,10 +1,53 @@
-var todayList = ["dat si ranajky", "dat si obed"];
-var scheduledList = ["dat si ranajky", "spravit todolist"];
-var doneList = ["ta vlajocka este nie je"]
-var allList = [...todayList, ...scheduledList];
+ var todayList = [];
+ var scheduledList = [];
+ var doneList = []
+ var allList = [...todayList, ...scheduledList];
 
 const todosListElement = document.getElementById('todos');
 updateCount();
+function renderLists() {
+  const listSelect = document.getElementById('addedLists');
+  const listsHtml = listOfLists.map(createListItem).join('');
+  listSelect.innerHTML = listsHtml;
+}
+
+function createListItem(list) {
+  return `<li>
+    <hr width="100%" size="1rem">
+    <a href="#" class="list">
+      ${list.name}
+    </a>
+  </li>`;
+}
+
+function loadDataFromJson() {
+  const jsonData = localStorage.getItem('listData');
+
+  if (jsonData) {
+    const data = JSON.parse(jsonData);
+    this.todayList = data.todayList || [];
+    this.scheduledList = data.scheduledList || [];
+    this.doneList = data.doneList || [];
+    this.listOfLists = data.listOfLists || [];
+  }
+  allList = [...this.todayList, ...this.scheduledList];
+  updateCount();
+  renderLists();
+}
+
+
+function saveDataToJson() {
+  const data = {
+    todayList: this.todayList,
+    scheduledList: this.scheduledList,
+    doneList: this.doneList,
+    listOfLists: this.listOfLists
+  };
+  const jsonData = JSON.stringify(data);
+  localStorage.setItem('listData', jsonData);
+}
+
+loadDataFromJson();
 
 function updateItemCount(elementId, itemList) {
   const countElement = document.getElementById(elementId);
@@ -29,6 +72,7 @@ function createTodoItem(task) {
 }
 
 todosListElement.innerHTML = todayList.map(createTodoItem).join('');
+
 
 function changeColor(color) {
   const rootElement = document.documentElement;

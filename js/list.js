@@ -16,21 +16,6 @@ function closeModal() {
   modalDarkness.style.display = "none";
 };
 
-function createListItem(list) {
-  return `<li>
-    <hr width="100%" size="1rem">
-    <a href="#" class="list">
-      ${list.name}
-    </a>
-  </li>`;
-}
-
-function renderLists() {
-  const listSelect = document.getElementById('addedLists');
-  const listsHtml = listOfLists.map(createListItem).join('');
-  listSelect.innerHTML = listsHtml;
-}
-
 showFormButton.addEventListener('click', () => {
   modalList.style.display = 'flex';
   modalDarkness.style.display = "block";
@@ -46,6 +31,7 @@ submitFormButton.addEventListener('click', () => {
     return;
   }
   listOfLists.push({ name: newListName, items: [] });
+  saveDataToJson();
   renderLists();
   listNameInput.value = '';
   closeModal();
@@ -87,6 +73,7 @@ function addTaskToList(listName, task) {
       return;
     }
   });
+  saveDataToJson();
   renderLists();
 }
 
@@ -98,6 +85,7 @@ function removeTaskOfList(listName, task) {
         return;
     }
   });
+  saveDataToJson();
   renderLists();
 }
 
@@ -108,3 +96,6 @@ function showTasksOfList(listName) {
     }
   })
 }
+
+
+

@@ -60,6 +60,7 @@ function addTask(task) {
   };
 
   showTasks(list);
+  saveDataToJson();
 };
 
 document.addEventListener("click", function(event) {
@@ -101,4 +102,5 @@ document.addEventListener("click", function(event) {
     showTasks(list);
     }
   }; 
+  saveDataToJson();
 });
