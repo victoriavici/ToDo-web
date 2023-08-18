@@ -5,7 +5,6 @@ const modalList = document.getElementById('modalList');
 var modalDarkness = document.getElementsByClassName("darkness")[0];
 const addedListsElement = document.getElementById('addedLists');
 
-var listOfLists = [];
 
 const submitFormButton = document.getElementById('submit');
 const addListForm = document.getElementById('addListForm');
@@ -15,21 +14,6 @@ function closeModal() {
   modalList.style.display = 'none';
   modalDarkness.style.display = "none";
 };
-
-function createListItem(list) {
-  return `<li>
-    <hr width="100%" size="1rem">
-    <a href="#" class="list">
-      ${list.name}
-    </a>
-  </li>`;
-}
-
-function renderLists() {
-  const listSelect = document.getElementById('addedLists');
-  const listsHtml = listOfLists.map(createListItem).join('');
-  listSelect.innerHTML = listsHtml;
-}
 
 showFormButton.addEventListener('click', () => {
   modalList.style.display = 'flex';
@@ -46,6 +30,7 @@ submitFormButton.addEventListener('click', () => {
     return;
   }
   listOfLists.push({ name: newListName, items: [] });
+  saveDataToJson();
   renderLists();
   listNameInput.value = '';
   closeModal();
@@ -69,6 +54,7 @@ function handleListClick(event) {
 
   nameOfListHeading.textContent = listName;
   nameOfListHeading.style.display = "block";
+  addNewElement.style.display = "flex";
   changeColor("var(--color-white)");
 
   listOfLists.forEach(list => {
@@ -87,6 +73,7 @@ function addTaskToList(listName, task) {
       return;
     }
   });
+  saveDataToJson();
   renderLists();
 }
 
@@ -98,6 +85,7 @@ function removeTaskOfList(listName, task) {
         return;
     }
   });
+  saveDataToJson();
   renderLists();
 }
 
@@ -108,3 +96,6 @@ function showTasksOfList(listName) {
     }
   })
 }
+
+
+
