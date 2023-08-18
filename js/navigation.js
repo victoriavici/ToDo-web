@@ -2,9 +2,11 @@
  var scheduledList = [];
  var doneList = []
  var allList = [...todayList, ...scheduledList];
+ var listOfLists = [];
 
 const todosListElement = document.getElementById('todos');
 updateCount();
+
 function renderLists() {
   const listSelect = document.getElementById('addedLists');
   const listsHtml = listOfLists.map(createListItem).join('');
@@ -79,6 +81,30 @@ function changeColor(color) {
   rootElement.style.setProperty('--color-svg', color);
 }
 
+
+function showTasks(targetId) {
+  addNewElement.style.display = "flex";
+  allList = [...todayList, ...scheduledList];
+  switch (targetId) {
+    case "today":
+      todosListElement.innerHTML = todayList.map(createTodoItem).join('');
+      break;
+    case "scheduled":
+      todosListElement.innerHTML = scheduledList.map(createTodoItem).join('');
+      break;
+    case "done":
+      todosListElement.innerHTML = doneList.map(createTodoItem).join('');
+      addNewElement.style.display = "none";
+      break;
+    case "all":
+      todosListElement.innerHTML = allList.map(createTodoItem).join('');
+    default:
+      showTasksOfList(targetId);
+      break;
+  }
+  updateCount();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   var navLinks = document.querySelectorAll(".nav a");
   var titleHeadings = document.querySelectorAll(".title h1");
@@ -104,27 +130,4 @@ document.addEventListener("DOMContentLoaded", function() {
   navLinks.forEach(navLink => {
     navLink.addEventListener("click", handleClick);
   });
-});
-
-function showTasks(targetId) {
-  addNewElement.style.display = "flex";
-  allList = [...todayList, ...scheduledList];
-  switch (targetId) {
-    case "today":
-      todosListElement.innerHTML = todayList.map(createTodoItem).join('');
-      break;
-    case "scheduled":
-      todosListElement.innerHTML = scheduledList.map(createTodoItem).join('');
-      break;
-    case "done":
-      todosListElement.innerHTML = doneList.map(createTodoItem).join('');
-      addNewElement.style.display = "none";
-      break;
-    case "all":
-      todosListElement.innerHTML = allList.map(createTodoItem).join('');
-    default:
-      showTasksOfList(targetId);
-      break;
-  }
-  updateCount();
-}
+})

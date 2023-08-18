@@ -5,7 +5,6 @@ const modalList = document.getElementById('modalList');
 var modalDarkness = document.getElementsByClassName("darkness")[0];
 const addedListsElement = document.getElementById('addedLists');
 
-var listOfLists = [];
 
 const submitFormButton = document.getElementById('submit');
 const addListForm = document.getElementById('addListForm');
@@ -55,6 +54,7 @@ function handleListClick(event) {
 
   nameOfListHeading.textContent = listName;
   nameOfListHeading.style.display = "block";
+  addNewElement.style.display = "flex";
   changeColor("var(--color-white)");
 
   listOfLists.forEach(list => {
